@@ -8,11 +8,11 @@ export const getWorker = async (
 ): Promise<languages.typescript.TypeScriptWorker> => {
   if (language === 'typescript') {
     const getter = await monaco.languages.typescript.getTypeScriptWorker()
-    const worker = await getter(uri)
+    const worker = await getter()
     return worker
   } else {
     const getter = await monaco.languages.typescript.getJavaScriptWorker()
-    const worker = await getter(uri)
+    const worker = await getter()
     return worker
   }
 }
