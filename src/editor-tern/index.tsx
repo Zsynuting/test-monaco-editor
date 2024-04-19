@@ -20,7 +20,7 @@ asyncSetText.data = {
 
 setContextData('JSO', {
   jso1: {
-    text: '100',
+    text: 100,
     setText,
     asyncSetText,
   },

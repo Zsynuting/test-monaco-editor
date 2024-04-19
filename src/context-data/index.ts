@@ -42,9 +42,11 @@ export const getContextDataOfExpression = (expression: string) => {
     const contextDataType = getContextDataTypeOfExpression(expression)
     if (contextDataType === 'CurrentModule') {
       const [, ...path] = expression.split('.')
-      return JSON.stringify(_.get(contextData, path.join('.')), null, 2)
+      const value = _.get(contextData, path.join('.'))
+      return [JSON.stringify(value, null, 2), typeof value].join(',')
     } else {
-      return JSON.stringify(_.get(contextData, expression), null, 2)
+      const value = _.get(contextData, expression)
+      return [JSON.stringify(value, null, 2), typeof value].join(',')
     }
   } catch (ex) {
     console.log(ex as Error)
